@@ -4,13 +4,15 @@ require("@babel/polyfill");
 
 var _express = _interopRequireDefault(require("express"));
 
-var _server = _interopRequireDefault(require("react-dom/server"));
-
 var _builder = _interopRequireDefault(require("./builder"));
 
 var _mapper = _interopRequireDefault(require("./mapper"));
 
-var _stock = _interopRequireDefault(require("./stock"));
+var _renderer = _interopRequireDefault(require("./renderer"));
+
+var _stock = _interopRequireDefault(require("./stock.0"));
+
+var _stock2 = _interopRequireDefault(require("./stock.1"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -20,7 +22,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var app = (0, _express["default"])();
 var builder = new _builder["default"]();
-var mapper = new _mapper["default"](_stock["default"]);
+var mapper = new _mapper["default"](_stock2["default"]);
 app.get("/",
 /*#__PURE__*/
 function () {
@@ -38,7 +40,7 @@ function () {
           case 2:
             json = _context.sent;
             page = mapper.build(json);
-            res.send(_server["default"].renderToString(page));
+            res.send((0, _renderer["default"])(page));
 
           case 5:
           case "end":

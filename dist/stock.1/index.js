@@ -11,7 +11,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var Button = function Button(_ref) {
   var text = _ref.text;
-  return _react["default"].createElement("button", null, text);
+  return _react["default"].createElement("button", null, _react["default"].createElement("strong", null, text));
 };
 
 var stock = {
