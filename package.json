@@ -1,0 +1,11 @@
+{
+  "name": "gluglu",
+  "version": "0.1.0",
+  "description": "Frontend builder, mapper and renderer",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Mauricio Alvim <mauricioalvimweb@gmail.com>",
+  "license": "MIT"
+}
