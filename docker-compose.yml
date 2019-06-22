@@ -4,7 +4,11 @@ services:
   # exporter:
   builder:
     build: "./packages/builder"
+  proxy:
+    build: "./packages/proxy"
     ports:
       - "3000:3000"
+    environment:
+      - BUILDER_API=http://builder:3000
   # mapper:
   # renderer:
