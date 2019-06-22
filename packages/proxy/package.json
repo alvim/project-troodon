@@ -1,0 +1,25 @@
+{
+  "name": "@troodon/proxy",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Troodon's default proxy.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest"
+  },
+  "author": "Mauricio Alvim <mauricioalvimweb@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "jest": "^24.8.0"
+  }
+}
