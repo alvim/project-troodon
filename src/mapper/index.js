@@ -12,7 +12,7 @@ class PageBuilder {
      * @param {boolean} options.renderInvalidComponent Should render warning
      * when component is not found?
      */
-    constructor(store, map, options) {
+    constructor(store, map = {}, options = {}) {
         const defaultOptions = {
             renderInvalidComponent: true
         }
@@ -54,28 +54,8 @@ class PageBuilder {
      * @returns {object} Props object.
     */
     _getProps(data, map) {
-        const defaultTemplate = {
-            __starter: object => object.settings,
-            className: object => object.settings.class,
-            style: object => getStyleObject(object.settings.style),
-            "*": [
-                {
-                    condition: (object, key) => isRepeater(object[key]),
-                    transform: (object, key) => object[key].map(obj => obj.value)
-                },
-                {
-                    condition: (object, key) => isImage(object[key]),
-                    transform: (object, key) => object[key].path
-                },
-                {
-                    condition: (object, key) => isBuildable(object, key),
-                    transform: (object, key) => this.build(object[key])
-                }
-            ],
-            __delete: ["class", "component", (object, key) => !object[key]]
-        }
-
-        return transform(data, defaultTemplate, map)
+        const defaultMap = { __starter: object => object.props }
+        return transform(data, defaultMap, map)
     }
 
     /** Responsible for managing not found components rendering.

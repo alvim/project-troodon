@@ -83,6 +83,7 @@ export const flat = arr => arr.reduce((acc, val) => acc.concat(val), [])
 export const transform = (data, ...templates) => {
     // Configuration objects
     const template = Object.assign({}, ...flat(templates))
+    console.log(data, template)
     
     // Operations
     let newObject
@@ -133,5 +134,6 @@ export const transform = (data, ...templates) => {
             })
     }
 
+    console.log(newObject)
     return newObject
 }
