@@ -5,6 +5,8 @@ import Mapper from "./mapper"
 import renderer from "./renderer"
 import stock0 from "./stock.0"
 import stock1 from "./stock.1"
+import exporter from "./exporter"
+import { exportSpecifier } from "@babel/types";
 
 const app = express()
 const builder = new Builder()
@@ -12,8 +14,10 @@ const mapper = new Mapper(stock1)
 
 app.get("/", async (req, res, next) => {
     const json = await builder.getPage()
-    const page = mapper.build(json)
-    res.send(renderer(page))
+    const components = mapper.build(json)
+    const page = renderer(components)
+    const response = await exporter(page)
+    res.send()
 })
 
 app.listen(3000, () => {
