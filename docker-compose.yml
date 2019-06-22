@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  # exporter:
+  builder:
+    build: "./packages/builder"
+    ports:
+      - "3000:3000"
+  # mapper:
+  # renderer:

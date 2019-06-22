@@ -1,3 +1,5 @@
+import express from "express"
+
 const json = [{
     component: "Button",
     props: {
@@ -12,5 +14,16 @@ class Builder {
         })
     }
 }
+
+const app = express()
+app.use(express.json())
+
+app.get("/", (req, res, next) => {
+    res.status(200).json(json)
+})
+
+app.listen(3000, () => {
+    console.log("Builder listening on 3000.")
+})
 
 export default Builder

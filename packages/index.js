@@ -5,7 +5,7 @@ import Mapper from "./mapper"
 import renderer from "./renderer"
 import stock0 from "./stock.0"
 import stock1 from "./stock.1"
-import exporter from "./exporter"
+import exporter from "./exporter.0"
 import { exportSpecifier } from "@babel/types";
 
 const app = express()
