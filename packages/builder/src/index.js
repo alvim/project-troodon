@@ -1,11 +1,22 @@
 import express from "express"
 
-const json = [{
-    component: "Paragraph",
-    props: {
-        children: "This is NOT a button"
+const json = [
+    {
+        component: "Paragraph",
+        props: {
+            children: "This is a paragraph"
+        }
+    },
+    {
+        component: "Divider"
+    },
+    {
+        component: "Span",
+        props: {
+            children: "I'm keeping my sanity"
+        }
     }
-}]
+]
 
 class Builder {
     getPage(route) {

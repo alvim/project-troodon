@@ -1,12 +1,12 @@
 {
-  "name": "@troodon/renderer",
+  "name": "@troodon/assembler",
   "private": true,
   "version": "0.1.0",
   "description": "Troodon's default renderer.",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "start": "npm run build && node dist/index.js",
+    "start": "cross-env NODE_ENV=production npm run build && node dist/index.js",
     "test": "jest ./src"
   },
   "author": "Mauricio Alvim <mauricioalvimweb@gmail.com>",
