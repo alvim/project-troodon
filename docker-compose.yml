@@ -4,14 +4,14 @@ services:
   # exporter:
   builder:
     build: "./packages/builder"
-  renderer:
-    build: "./packages/renderer"
+  assembler:
+    build: "./packages/assembler"
   proxy:
     build: "./packages/proxy"
     ports:
       - "3000:3000"
     environment:
       - BUILDER_API=http://builder:3000
-      - RENDERER_API=http://renderer:3000
+      - ASSEMBLER_API=http://assembler:3000
   # mapper:
   # renderer:

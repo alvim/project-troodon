@@ -1,9 +1,9 @@
 import express from "express"
 
 const json = [{
-    component: "Button",
+    component: "Paragraph",
     props: {
-        text: "This is a button"
+        children: "This is NOT a button"
     }
 }]
 
@@ -23,7 +23,7 @@ app.get("/", (req, res, next) => {
 })
 
 app.listen(3000, () => {
-    console.log("Builder listening on 3000.")
+    console.log("Troodon's builder listening on 3000.")
 })
 
 export default Builder

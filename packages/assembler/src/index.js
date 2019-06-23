@@ -1,6 +1,6 @@
 import express from "express"
 import bodyParser from "body-parser"
-import ComponentsAssembler from "./ComponentsAssembler"
+import Injector from "./Injector"
 import render from "./Renderer"
 import React from "react"
 
@@ -11,7 +11,7 @@ const stock = {
     Span: () => <span></span>,
     Banner: ({children}) => <div>{children}</div>,
 }
-const assembler = new ComponentsAssembler(stock)
+const injector = new Injector(stock)
 app.use(bodyParser.json())
 
 app.get("/", (req, res, next) => {
@@ -20,7 +20,7 @@ app.get("/", (req, res, next) => {
 
 app.post("/", (req, res, next) => {
     const data = req.body
-    const page = assembler.build(data)
+    const page = injector.build(data)
     res.send(render(page))
     
 })
