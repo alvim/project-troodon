@@ -27,7 +27,7 @@ class ComponentsAssembler {
         const { component, props } = data
         const type = this.store[component]
 
-        if (type) return React.createElement(type, {...props, key: index})
+        if (type) return React.createElement(type, {...props, key: index}, this.build((props || {}).children))
         else return this._renderInvalidComponent(data.component)
     }
 

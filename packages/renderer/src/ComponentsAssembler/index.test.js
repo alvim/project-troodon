@@ -9,9 +9,9 @@ const lib = {
 }
 
 const page = [
-    { component: "Paragraph", props: { children: "I'm a paragraph" }},
-    { component: "Divider", props: {}},
-    { component: "Span", props: { children: { component: "Span", props: {}} }}
+    { "component": "Paragraph", "props": { "children": "I'm a paragraph" }},
+    { "component": "Divider", "props": {}},
+    { "component": "Span", "props": { "children": [ { "component": "Span", "props": {} } ] } }
 ]
 
 let builder

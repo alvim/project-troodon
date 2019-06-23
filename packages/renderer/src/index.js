@@ -3,11 +3,10 @@ import bodyParser from "body-parser"
 import ComponentsAssembler from "./ComponentsAssembler"
 import render from "./Renderer"
 import React from "react"
-import ReactDOMServer from "react-dom/server"
 
 const app = express()
 const stock = {
-    Paragraph: text => <p>{text}</p>,
+    Paragraph: ({children}) => <p>{children}</p>,
     Divider: () => <hr />,
     Span: () => <span></span>,
     Banner: ({children}) => <div>{children}</div>,
@@ -20,12 +19,9 @@ app.get("/", (req, res, next) => {
 })
 
 app.post("/", (req, res, next) => {
-    console.log("Components requested...")
     const data = req.body
     const page = assembler.build(data)
-    console.log(page)
-    // res.send("olaalalar")
-    res.send(ReactDOMServer.renderToString(<p>Oi todo bom</p>))
+    res.send(render(page))
     
 })
 
