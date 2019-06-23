@@ -6,4 +6,7 @@ RUN npm install
 
 COPY . ./
 
+# Step to install components stock
+COPY ../stock/dist ./src/Stock
+
 CMD ["npm", "start"]
