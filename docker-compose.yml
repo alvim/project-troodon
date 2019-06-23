@@ -2,10 +2,13 @@ version: "3.7"
 
 services:
   # exporter:
+  assembler:
+    build:
+      context: "./packages/assembler"
+      args:
+        - COMPONENTS_LIBRARY=https://github.com/alvimm/troodon-components/tarball/master
   builder:
     build: "./packages/builder"
-  assembler:
-    build: "./packages/assembler"
   proxy:
     build: "./packages/proxy"
     ports:
